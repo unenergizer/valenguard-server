@@ -1,4 +1,4 @@
-package com.valenguard.server.shared;
+package com.valenguard.server.network.shared;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

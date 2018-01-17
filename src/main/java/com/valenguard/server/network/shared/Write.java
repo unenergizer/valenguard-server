@@ -1,4 +1,4 @@
-package com.valenguard.server.shared;
+package com.valenguard.server.network.shared;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;

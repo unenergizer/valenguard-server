@@ -1,6 +1,6 @@
-package com.valenguard.server;
+package com.valenguard.server.network;
 
-import com.valenguard.server.shared.Write;
+import com.valenguard.server.network.shared.Write;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -16,6 +16,11 @@ public class ClientHandle {
     private ObjectOutputStream outStream;
     private ObjectInputStream inStream;
 
+    @FunctionalInterface
+    private interface Reader {
+        void accept() throws IOException;
+    }
+
     public String readString() {
         try {
             return inStream.readUTF();
@@ -23,6 +28,34 @@ public class ClientHandle {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public int readInt() {
+        readIn(() -> inStream.readInt());
+        return 0;
+    }
+
+    public int readChar() {
+        readIn(() -> inStream.readChar());
+        return 0;
+    }
+
+    public void readIn(Reader reader) {
+        try {
+            reader.accept();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public byte readByte() {
+        try {
+            return inStream.readByte();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return 0x0;
     }
 
     public void write(char opcode, Write writeCallback) {
