@@ -1,6 +1,7 @@
 package com.valenguard.server.network;
 
-import com.valenguard.server.ServerConstants;
+import com.valenguard.server.ValenguardMain;
+import com.valenguard.server.constants.ServerConstants;
 import com.valenguard.server.util.ConsoleLogger;
 import lombok.Setter;
 
@@ -11,11 +12,9 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Consumer;
 
-public class NetworkManager implements Runnable {
+public class ServerConnection implements Runnable {
 
     private ServerSocket serverSocket;
     private ServerEventBus serverEventBus = new ServerEventBus();
@@ -27,10 +26,6 @@ public class NetworkManager implements Runnable {
     @Setter
     private volatile boolean running = false;
 
-    // Change this to an multithreadable list later on as to not run into problems.
-    // each client handle is on a seperate thread so that would be the reason for needing that
-    private List<ClientHandle> clientHandles = new ArrayList<>();
-
     /**
      * Opens a server on a given socket and registers event listeners.
      *
@@ -38,8 +33,8 @@ public class NetworkManager implements Runnable {
      */
     public void openServer(Consumer<ServerEventBus> registerListeners) {
 
+        // Creates a socket to allow for communication between clients and the server.
         try {
-            // Creates a socket to allow for communication between clients and the server
             serverSocket = new ServerSocket(ServerConstants.SERVER_PORT);
         } catch (IOException e) {
             e.printStackTrace();
@@ -48,6 +43,7 @@ public class NetworkManager implements Runnable {
 
         // A callback for registering the listeners at a later time
         this.registerListeners = registerListeners;
+
         // Runs a thread for setting up
         new Thread(this, "Start").start();
     }
@@ -97,47 +93,44 @@ public class NetworkManager implements Runnable {
     }
 
     /**
-     * @param clientSocket
+     * Start receiving packets for a new client connection.
+     *
+     * @param clientSocket A new client connection.
      */
     private void receivePackets(Socket clientSocket) {
 
         // This thread listens for incoming packets from the socket passed
         // to the method
         new Thread(() -> {
-            ClientHandle clientHandle = null;
+            ClientHandler clientHandler = null;
             // Using a new implementation in java that handles closing the streams
-            // apon initialization. These streams are for sending and receiving data
+            // upon initialization. These streams are for sending and receiving data
             try (
                     ObjectOutputStream outStream = new ObjectOutputStream(clientSocket.getOutputStream());
-                    ObjectInputStream inStream = new ObjectInputStream(clientSocket.getInputStream());
+                    ObjectInputStream inStream = new ObjectInputStream(clientSocket.getInputStream())
             ) {
 
                 // Creating a new client handle that contains the necessary components for
                 // sending and receiving data
-                clientHandle = new ClientHandle(clientSocket, outStream, inStream);
-
-                System.out.println(ConsoleLogger.NETWORK + clientSocket.getInetAddress().getHostAddress() + " has connected.");
+                clientHandler = new ClientHandler(clientSocket, outStream, inStream);
 
                 // Adding the client handle to a list of current client handles
-                synchronized (clientHandles) {
-                    clientHandles.add(clientHandle);
-                }
+                ValenguardMain.getInstance().getPlayerManager().onPlayerConnect(clientHandler);
 
-                //TODO: Being client talk
-
-                // Reading in a char which represents an opcode that the client sent to the
-                // server. Based on this opcode the eventbus determines which listener should
+                // Reading in a byte which represents an opcode that the client sent to the
+                // server. Based on this opcode the event bus determines which listener should
                 // be called
-                while (running) serverEventBus.publish(inStream.readChar(), clientHandle);
+                while (running) serverEventBus.publish(inStream.readByte(), clientHandler);
 
             } catch (IOException e) {
 
                 if (e instanceof EOFException || e instanceof SocketException) {
                     // The user has logged out of the server
-                    if (clientHandle != null && running) {
-                        System.out.println(ConsoleLogger.NETWORK +
-                                        clientSocket.getInetAddress().getHostAddress() +
-                                        " has logged out.");
+                    if (clientHandler != null && running) {
+
+                        // The player has disconnected
+                        System.out.println(ConsoleLogger.NETWORK + clientSocket.getInetAddress().getHostAddress() + " has logged out.");
+                        ValenguardMain.getInstance().getPlayerManager().onPlayerDisconnect(clientHandler);
                     }
                 } else {
                     e.printStackTrace();
@@ -174,7 +167,7 @@ public class NetworkManager implements Runnable {
      * Ensuring that the server's socket is closed down
      */
     @Override
-    protected void finalize() throws Throwable {
+    protected void finalize() {
         // Double ensuring that that the server is closed
         close();
     }

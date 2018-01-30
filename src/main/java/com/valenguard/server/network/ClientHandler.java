@@ -11,7 +11,7 @@ import java.net.Socket;
 
 @AllArgsConstructor
 @Getter
-public class ClientHandle {
+public class ClientHandler {
     private Socket clientSocket;
     private ObjectOutputStream outStream;
     private ObjectInputStream inStream;
@@ -58,11 +58,28 @@ public class ClientHandle {
         return 0x0;
     }
 
-    public void write(char opcode, Write writeCallback) {
+    /**
+     * This is used to send the entity packet data.
+     *
+     * @param opcode        The code that defines what this packet contents will contain.
+     * @param writeCallback The data we will be sending to the client.
+     */
+    public void write(byte opcode, Write writeCallback) {
         try {
-            outStream.writeChar(opcode);
+            outStream.writeByte(opcode);
             writeCallback.accept(outStream);
             outStream.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Disconnects this client from the server.
+     */
+    public void disconnect() {
+        try {
+            clientSocket.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

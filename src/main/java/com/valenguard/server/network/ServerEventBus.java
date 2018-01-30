@@ -18,7 +18,7 @@ public class ServerEventBus {
         private Method method;
     }
 
-    private Map<Character, CallbackData> listeners = new HashMap<>();
+    private Map<Byte, CallbackData> listeners = new HashMap<>();
 
     public void registerListener(Listener listener) {
         for (Method method : listener.getClass().getMethods()) {
@@ -27,21 +27,21 @@ public class ServerEventBus {
                 String error = "Listener: " + listener;
                 if (params.length != 1)
                     throw new RuntimeException(ConsoleLogger.ERROR.toString() + error + " must have 1 parameters.");
-                if (!params[0].equals(ClientHandle.class))
-                    throw new RuntimeException(ConsoleLogger.ERROR.toString() + error + " first parameter must be of type ClientHandle");
+                if (!params[0].equals(ClientHandler.class))
+                    throw new RuntimeException(ConsoleLogger.ERROR.toString() + error + " first parameter must be of type ClientHandler");
                 listeners.put(opcodeAnnotation.getOpcode(), new CallbackData(listener, method));
             }
         }
     }
 
-    public void publish(char opcode, ClientHandle clientHandle) {
+    public void publish(byte opcode, ClientHandler clientHandler) {
         CallbackData callbackData = listeners.get(opcode);
         if (callbackData == null) {
             System.out.println(ConsoleLogger.ERROR.toString() + "Callback data was null for " + opcode + ". Is the event registered?");
             return;
         }
         try {
-            callbackData.method.invoke(callbackData.listener, clientHandle);
+            callbackData.method.invoke(callbackData.listener, clientHandler);
         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
             e.printStackTrace();
         }

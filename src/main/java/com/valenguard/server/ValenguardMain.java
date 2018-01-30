@@ -2,10 +2,11 @@ package com.valenguard.server;
 
 import com.valenguard.server.commands.CommandProcessor;
 import com.valenguard.server.commands.ConsoleCommandManager;
-import com.valenguard.server.network.NetworkManager;
-import com.valenguard.server.network.listeners.Pinger;
-import com.valenguard.server.network.listeners.incoming.MoveReply;
-import com.valenguard.server.network.listeners.outgoing.MoveRequest;
+import com.valenguard.server.entity.PlayerManager;
+import com.valenguard.server.maps.MapManager;
+import com.valenguard.server.network.ServerConnection;
+import com.valenguard.server.network.listeners.server.out.MoveReply;
+import com.valenguard.server.network.listeners.server.in.MoveRequest;
 import com.valenguard.server.util.ConsoleLogger;
 import lombok.Getter;
 
@@ -13,9 +14,11 @@ import lombok.Getter;
 public class ValenguardMain {
 
     private static ValenguardMain instance = null;
+    private MapManager mapManager;
     private CommandProcessor commandProcessor;
-    private NetworkManager networkManager;
+    private ServerConnection serverConnection;
     private ServerLoop serverLoop;
+    private PlayerManager playerManager;
     private volatile boolean isOnline = false;
 
     /**
@@ -39,6 +42,8 @@ public class ValenguardMain {
     private void start() {
         isOnline = true;
 
+        mapManager = new MapManager();
+
         // start server loop
         serverLoop = new ServerLoop();
         serverLoop.start();
@@ -46,7 +51,9 @@ public class ValenguardMain {
         // register commands
         registerCommands();
 
-        // start networkManager code
+        playerManager = new PlayerManager();
+
+        // start serverConnection code
         initializeNetwork();
 
 //        // TODO: MOVE OR REMOVE....
@@ -57,7 +64,7 @@ public class ValenguardMain {
 //            if (input.equalsIgnoreCase("/stop")) break;
 //        }
 //        scanner.close();
-//        networkManager.close();
+//        serverConnection.close();
     }
 
     /**
@@ -66,10 +73,8 @@ public class ValenguardMain {
      */
     private void initializeNetwork() {
         System.out.println(ConsoleLogger.NETWORK.toString() + "Initializing network...");
-        networkManager = new NetworkManager();
-        networkManager.openServer((eventBus) -> {
-            eventBus.registerListener(new Pinger());
-            eventBus.registerListener(new MoveReply());
+        serverConnection = new ServerConnection();
+        serverConnection.openServer((eventBus) -> {
             eventBus.registerListener(new MoveRequest());
         });
     }
@@ -89,12 +94,13 @@ public class ValenguardMain {
      * Stops server operations and terminates the program.
      */
     public void stop() {
-        System.out.println(ConsoleLogger.SERVER.toString() + "NetworkManager shutdown initialized!");
+        System.out.println(ConsoleLogger.SERVER.toString() + "ServerConnection shutdown initialized!");
 
         isOnline = false; // this will stop the server loop
 
         //TODO: Stop network functions and shut down nicely.
+        serverConnection.close();
 
-        System.out.println(ConsoleLogger.SERVER.toString() + "NetworkManager shutdown complete!");
+        System.out.println(ConsoleLogger.SERVER.toString() + "ServerConnection shutdown complete!");
     }
 }

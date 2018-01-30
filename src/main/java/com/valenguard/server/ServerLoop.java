@@ -1,6 +1,8 @@
 package com.valenguard.server;
 
-import com.valenguard.server.util.ConsoleLogger;
+import com.valenguard.server.constants.ServerConstants;
+import com.valenguard.server.serverupdates.UpdateMovements;
+import lombok.Getter;
 
 /**
  * Class Credit:
@@ -12,9 +14,11 @@ import com.valenguard.server.util.ConsoleLogger;
 public class ServerLoop extends Thread {
 
     /* UPDATES PER SECOND */
-    private final int TPS = 20;
     private int currentTPS;
     private long variableYieldTime, lastTime;
+
+    @Getter
+    private UpdateMovements updateMovements = new UpdateMovements();
 
     public ServerLoop() {
         super("MainServerLoop");
@@ -32,7 +36,7 @@ public class ServerLoop extends Thread {
     @Override
     public void run() {
         int updates = 0;
-        float timeStep = 1.0F / TPS;
+        float timeStep = 1.0F / ServerConstants.TICKS_PER_SECOND;
         long time = 0;
         long nanoSecond = 1000000000; // 1 second -> 1000 ms -> 1000*1,000,000 ns
         long startTime, endTime;
@@ -45,12 +49,13 @@ public class ServerLoop extends Thread {
              ***********************/
 
             // TODO: Create dynamic pulse event that all server operations listen to.
+            updateMovements.updatePlayerMovement();
 
             /************************
              * !! Update End !!
              ***********************/
 
-            sync(TPS);
+            sync(ServerConstants.TICKS_PER_SECOND);
             //System.out.println(ConsoleLogger.INFO.toString() + "TPS: " + getCurrentTPS());
 
             endTime = System.nanoTime();
@@ -108,5 +113,4 @@ public class ServerLoop extends Thread {
             }
         }
     }
-
 }
