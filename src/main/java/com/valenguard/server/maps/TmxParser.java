@@ -224,6 +224,8 @@ public class TmxParser {
             }
         }
 
+        System.out.println("");
+
         return new MapData(fileName, mapWidth, mapHeight, map);
     }
 }
