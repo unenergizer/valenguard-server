@@ -4,21 +4,23 @@ import com.valenguard.server.entity.Entity;
 import com.valenguard.server.entity.Player;
 import com.valenguard.server.network.shared.Opcodes;
 
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
 public class EntityExitMap extends ServerOutPacket {
 
     private Entity entityWhoJoined;
 
     public EntityExitMap(Player player, Entity entityWhoLeft) {
-        super(player);
+        super(Opcodes.ENTITY_EXIT_MAP, player);
         this.entityWhoJoined = entityWhoLeft;
         if (player.equals(entityWhoLeft)) throw new RuntimeException("The entity and the player must not be the same!");
     }
 
     @Override
-    public void sendPacket() {
-        player.getClientHandler().write(Opcodes.ENTITY_EXIT_MAP, write -> {
-            System.out.println("Sending entity info about a player who has left.");
-            write.writeInt(entityWhoJoined.getEntityID());
-        });
+    protected void createPacket(ObjectOutputStream write) throws IOException {
+        System.out.println("Sending entity info about a player who has left.");
+        write.writeInt(entityWhoJoined.getEntityID());
     }
+
 }

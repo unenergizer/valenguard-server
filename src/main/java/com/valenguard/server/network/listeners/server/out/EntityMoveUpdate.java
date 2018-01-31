@@ -8,6 +8,7 @@ import com.valenguard.server.network.shared.Opcode;
 import com.valenguard.server.network.shared.Opcodes;
 import lombok.AllArgsConstructor;
 
+import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 /********************************************************
@@ -39,17 +40,14 @@ public class EntityMoveUpdate extends ServerOutPacket {
     private Entity entityWhoMoved;
 
     public EntityMoveUpdate(Player player, Entity entityWhoMoved) {
-        super(player);
+        super(Opcodes.ENTITY_MOVE_UPDATE, player);
         this.entityWhoMoved = entityWhoMoved;
     }
 
     @Override
-    public void sendPacket() {
-        System.out.println("EntityMoveUpdate packet sent");
-        player.getClientHandler().write(Opcodes.ENTITY_MOVE_UPDATE, (ObjectOutputStream write) -> {
-            write.writeInt(entityWhoMoved.getEntityID());
-            write.writeInt(entityWhoMoved.getFutureLocation().getX());
-            write.writeInt(entityWhoMoved.getFutureLocation().getY());
-        });
+    protected void createPacket(ObjectOutputStream write) throws IOException {
+        write.writeInt(entityWhoMoved.getEntityID());
+        write.writeInt(entityWhoMoved.getFutureLocation().getX());
+        write.writeInt(entityWhoMoved.getFutureLocation().getY());
     }
 }

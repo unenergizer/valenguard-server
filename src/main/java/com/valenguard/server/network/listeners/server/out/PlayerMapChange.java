@@ -4,22 +4,22 @@ import com.valenguard.server.entity.Player;
 import com.valenguard.server.maps.Location;
 import com.valenguard.server.network.shared.Opcodes;
 
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
 public class PlayerMapChange extends ServerOutPacket {
 
     private Location teleportLocation;
 
     public PlayerMapChange(Player player, Location teleportLocation) {
-        super(player);
+        super(Opcodes.PLAYER_MAP_CHANGE, player);
         this.teleportLocation = teleportLocation;
     }
 
     @Override
-    public void sendPacket() {
-        player.getClientHandler().write(Opcodes.PLAYER_MAP_CHANGE, write -> {
-            System.out.println("Attempting map change.");
-            write.writeUTF(teleportLocation.getMapName());
-            write.writeInt(teleportLocation.getX());
-            write.writeInt(teleportLocation.getY());
-        });
+    protected void createPacket(ObjectOutputStream write) throws IOException {
+        write.writeUTF(teleportLocation.getMapName());
+        write.writeInt(teleportLocation.getX());
+        write.writeInt(teleportLocation.getY());
     }
 }

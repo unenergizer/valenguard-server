@@ -7,6 +7,7 @@ import com.valenguard.server.network.shared.Listener;
 import com.valenguard.server.network.shared.Opcode;
 import com.valenguard.server.network.shared.Opcodes;
 
+import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 /********************************************************
@@ -44,17 +45,15 @@ public class MoveReply extends ServerOutPacket {
     private Location location;
 
     public MoveReply(Player player, boolean moveAllowed, Location location) {
-        super(player);
+        super(Opcodes.MOVE_REPLY, player);
         this.moveAllowed = moveAllowed;
         this.location = location;
     }
 
     @Override
-    public void sendPacket() {
-        player.getClientHandler().write(Opcodes.MOVE_REPLY, (ObjectOutputStream write) -> {
-            write.writeBoolean(moveAllowed);
-            write.writeInt(location.getX());
-            write.writeInt(location.getY());
-        });
+    protected void createPacket(ObjectOutputStream write) throws IOException {
+        write.writeBoolean(moveAllowed);
+        write.writeInt(location.getX());
+        write.writeInt(location.getY());
     }
 }

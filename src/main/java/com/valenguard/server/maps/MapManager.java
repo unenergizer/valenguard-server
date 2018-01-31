@@ -3,6 +3,7 @@ package com.valenguard.server.maps;
 import com.valenguard.server.entity.Entity;
 import com.valenguard.server.entity.Player;
 import com.valenguard.server.network.listeners.server.out.EntityMoveUpdate;
+import com.valenguard.server.network.listeners.server.out.PlayerMapChange;
 
 import java.io.File;
 import java.util.HashMap;
@@ -75,6 +76,7 @@ public class MapManager {
     }
 
     public void playerChangeMap(Player player) {
-
+        // TODO: Implement proper tiled map switch
+        new PlayerMapChange(player, new Location("d", 0, 0)).sendPacket();
     }
 }

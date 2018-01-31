@@ -7,6 +7,7 @@ import com.valenguard.server.maps.MapData;
 import com.valenguard.server.network.ClientHandler;
 import com.valenguard.server.network.listeners.server.out.EntityExitMap;
 import com.valenguard.server.network.listeners.server.out.EntityJoinMap;
+import com.valenguard.server.network.listeners.server.out.InitPlayerClient;
 import com.valenguard.server.network.shared.Opcodes;
 
 import java.io.IOException;
@@ -44,7 +45,7 @@ public class PlayerManager {
         System.out.println("eID: " + lastFakeID + ", X: " + player.getLocation().getX() + ", Y: " + player.getLocation().getY());
 
         // Send this new client connection information about their location and other various information.
-        clientHandler.write(Opcodes.INIT_PLAYER_CLIENT, write -> sendExistingPlayerData(write, player));
+        new InitPlayerClient(player).sendPacket();
 
         // Lets update everyone because a player has joined the map.
         mapData.getPlayerList().forEach(playerOnMap -> {
@@ -86,12 +87,6 @@ public class PlayerManager {
 
         // Remove the player from the player manager.
         onlinePlayers.remove(getPlayer(clientHandler));
-    }
-
-    private void sendExistingPlayerData(ObjectOutputStream write, Player joinedPlayer) throws IOException {
-        write.writeInt(joinedPlayer.getEntityID());
-        write.writeInt(joinedPlayer.getLocation().getX());
-        write.writeInt(joinedPlayer.getLocation().getY());
     }
 
     /**

@@ -2,6 +2,7 @@ package com.valenguard.server.maps;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
@@ -12,6 +13,9 @@ import java.io.IOException;
 
 public class TmxParser {
 
+    private static final int TILE_SIZE = 16;
+    private static final boolean PRINT_MAP = true;
+
     /**
      * This takes in a TMX map and gets the collision elements from it and builds a collision
      * array for checking entity collision server side.
@@ -21,7 +25,6 @@ public class TmxParser {
      * @return A map data class with information about this map.
      */
     public static MapData loadXMLFile(String directory, String fileName) {
-        int mapWidth, mapHeight;
 
         // Lets get the document
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -44,21 +47,27 @@ public class TmxParser {
 
         // Get the first element
         Element tmx = document.getDocumentElement();
-        mapWidth = Integer.parseInt(tmx.getAttributes().getNamedItem("width").getNodeValue());
-        mapHeight = Integer.parseInt(tmx.getAttributes().getNamedItem("height").getNodeValue());
+
+
+        /************************************************************************************************
+         * BUILD TILED MAP TILES......
+         ***********************************************************************************************/
+
+        int mapWidth = Integer.parseInt(tmx.getAttributes().getNamedItem("width").getNodeValue());
+        int mapHeight = Integer.parseInt(tmx.getAttributes().getNamedItem("height").getNodeValue());
 
         Tile map[][] = new Tile[mapWidth][mapHeight];
 
-        // Loop through layers
-        NodeList layers = tmx.getElementsByTagName("layer");
+        // Examine XML file and find tags called "layer" then loop through them.
+        NodeList layerTag = tmx.getElementsByTagName("layer");
 
-        for (int i = 0; i < layers.getLength(); i++) {
+        for (int i = 0; i < layerTag.getLength(); i++) {
 
             // Get collision layer
-            if (((Element) layers.item(i)).getAttribute("name").equals("collision")) {
+            if (((Element) layerTag.item(i)).getAttribute("name").equals("collision")) {
 
                 // Get collision data
-                NodeList collisionData = ((Element) layers.item(i)).getElementsByTagName("data");
+                NodeList collisionData = ((Element) layerTag.item(i)).getElementsByTagName("data");
 
                 // Get Array of tiles
                 String[] tiles = collisionData.item(0).getTextContent().split(",");
@@ -97,10 +106,10 @@ public class TmxParser {
                     // Check for tile ID and add it to collision map
                     if (tileType != 0) {
                         map[currentX][currentY].setTraversable(false); // Not traversable
-                        System.out.print("#");
+                        //System.out.print("#");
                     } else {
                         map[currentX][currentY].setTraversable(true); // Is traversable
-                        System.out.print(" ");
+                        //System.out.print(" ");
                     }
 
                     // Increment x horizontal value
@@ -108,13 +117,113 @@ public class TmxParser {
 
                     // Check for end of map width
                     if (currentX == mapWidth) {
-                        System.out.println("");
+                        //System.out.println("");
                         currentX = 0; // reset x counter
                         currentY--; // decrement y value
                     }
                 }
             }
         }
+
+        /************************************************************************************************
+         * GET SPECIFIC TILE ATTRIBUTES
+         ***********************************************************************************************/
+
+        // Examine XML file and find tags called "layer" then loop through them.
+        NodeList objectgroupTag = tmx.getElementsByTagName("objectgroup");
+
+        for (int i = 0; i < objectgroupTag.getLength(); i++) {
+
+            // Get warps
+            if (((Element) objectgroupTag.item(i)).getAttribute("name").equals("warp")) {
+
+
+                NodeList objectTag = ((Element) objectgroupTag.item(i)).getElementsByTagName("object");
+
+//                System.out.println("WARPS: " + objectTag.getLength());
+
+                for (int j = 0; j < objectTag.getLength(); j++) {
+
+                    //System.out.println("NodeType: " + objectTag.item(j).getNodeType());
+
+                    if (objectTag.item(j).getNodeType() != Node.ELEMENT_NODE) continue;
+
+                    Element objectTagElement = (Element) objectTag.item(j);
+                    int x = Integer.parseInt(objectTagElement.getAttribute("x")) / TILE_SIZE;
+                    int y = Integer.parseInt(objectTagElement.getAttribute("y")) / TILE_SIZE;
+                    int width = Integer.parseInt(objectTagElement.getAttribute("width")) / TILE_SIZE;
+                    int height = Integer.parseInt(objectTagElement.getAttribute("height")) / TILE_SIZE;
+
+                    String warpMapName = null;
+                    int warpX = 0;
+                    int warpY = 0;
+
+//                    System.out.println("[WARP #" + j + "] X: " + x + ", Y: " + y + ", Width: " + width + ", Height: " + height);
+
+                    NodeList properties = objectTagElement.getElementsByTagName("properties").item(0).getChildNodes();
+
+                    for (int k = 0; k < properties.getLength(); k++) {
+
+                        if (properties.item(k).getNodeType() != Node.ELEMENT_NODE) continue;
+                        Element propertyElement = (Element) properties.item(k);
+
+                        // Get map name:
+                        if (propertyElement.getAttribute("name").equals("map")) {
+                            warpMapName = propertyElement.getAttribute("value");
+//                            System.out.println("Map: " + warpMapName);
+                        }
+
+                        // Get map X:
+                        if (propertyElement.getAttribute("name").equals("X")) {
+                            warpX = Integer.parseInt(propertyElement.getAttribute("value"));
+//                            System.out.println("X: " + warpX);
+                        }
+
+                        // Get map Y:
+                        if (propertyElement.getAttribute("name").equals("Y")) {
+                            warpY = Integer.parseInt(propertyElement.getAttribute("value"));
+//                            System.out.println("Y: " + warpY);
+                        }
+
+                        // Print the map to console.
+                        for (int ii = y; ii < y + height; ii++) {
+                            for (int jj = x; jj < x + width; jj++) {
+                                Tile tile = map[jj][mapHeight - ii - 1];
+                                tile.setWarp(new Warp(warpMapName, warpX, warpY));
+//                                System.out.println(tile.getWarp().getMapName());
+//                                System.out.println(tile.getWarp().getX());
+//                                System.out.println(tile.getWarp().getY());
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /**
+         * Print the map to console.
+         */
+        if (PRINT_MAP) {
+            for (int height = mapHeight - 1; height >= 0; height--) {
+                for (int width = 0; width < mapWidth; width++) {
+                    Tile tile = map[width][height];
+
+                    if (!tile.isTraversable()) {
+                        System.out.print("#");
+
+                    } else if (tile.isTraversable() && tile.getWarp() != null) {
+                        System.out.print("@");
+
+                    } else if (tile.isTraversable() && tile.getWarp() == null) {
+                        System.out.print(" ");
+                    }
+
+                }
+
+                System.out.println();
+            }
+        }
+
         return new MapData(fileName, mapWidth, mapHeight, map);
     }
 }
