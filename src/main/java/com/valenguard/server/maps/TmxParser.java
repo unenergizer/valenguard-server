@@ -209,7 +209,7 @@ public class TmxParser {
                     Tile tile = map[width][height];
 
                     if (!tile.isTraversable()) {
-                        System.out.print("#");
+                        System.out.print("X");
 
                     } else if (tile.isTraversable() && tile.getWarp() != null) {
                         System.out.print("@");
