@@ -5,6 +5,7 @@ import com.valenguard.server.commands.ConsoleCommandManager;
 import com.valenguard.server.entity.PlayerManager;
 import com.valenguard.server.maps.MapManager;
 import com.valenguard.server.network.ServerConnection;
+import com.valenguard.server.network.listeners.server.in.PingIn;
 import com.valenguard.server.network.listeners.server.out.MoveReply;
 import com.valenguard.server.network.listeners.server.in.MoveRequest;
 import com.valenguard.server.util.ConsoleLogger;
@@ -76,6 +77,7 @@ public class ValenguardMain {
         serverConnection = new ServerConnection();
         serverConnection.openServer((eventBus) -> {
             eventBus.registerListener(new MoveRequest());
+            eventBus.registerListener(new PingIn());
         });
     }
 

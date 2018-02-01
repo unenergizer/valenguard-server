@@ -13,4 +13,5 @@ public class Opcodes {
     public static final byte ENTITY_JOINED_MAP = 0x04;
     public static final byte ENTITY_EXIT_MAP = 0x05;
     public static final byte PLAYER_MAP_CHANGE = 0x06;
+    public static final byte PING = 0x07;
 }

@@ -11,7 +11,8 @@ import java.util.Map;
 
 public class MapManager {
 
-    private static final String MAP_DIRECTORY = "src/main/resources/maps/";
+    //private static final String MAP_DIRECTORY = "src/main/resources/maps/";
+    private static final String MAP_DIRECTORY = "maps/";
 
     private Map<String, MapData> tmxMaps = new HashMap<>();
 
@@ -28,6 +29,8 @@ public class MapManager {
         // Find all our maps.
         File dir = new File(MAP_DIRECTORY);
         File[] files = dir.listFiles((d, name) -> name.endsWith(".tmx"));
+
+        System.out.println(dir.getAbsolutePath());
 
         // Check to make sure we have some maps
         if (files == null) {
