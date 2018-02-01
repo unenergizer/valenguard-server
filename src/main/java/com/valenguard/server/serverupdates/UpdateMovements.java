@@ -3,7 +3,11 @@ package com.valenguard.server.serverupdates;
 import com.valenguard.server.ValenguardMain;
 import com.valenguard.server.entity.Player;
 import com.valenguard.server.maps.Location;
+import com.valenguard.server.maps.MapData;
+import com.valenguard.server.maps.Tile;
+import com.valenguard.server.maps.Warp;
 import com.valenguard.server.network.listeners.server.out.MoveReply;
+import com.valenguard.server.network.listeners.server.out.PlayerMapChange;
 
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedDeque;
@@ -51,14 +55,50 @@ public class UpdateMovements {
 
         System.out.println("Player trying to move to-> X: " + futureLocation.getX() + ", Y: " + futureLocation.getY());
 
-        //TODO: Implement map switching. Update TMX Parser to read "TMX MAP OBJECTS (from Tiled Editor) to know what map to switch to. (See mirage realms map for example).
-
         // Check for out of bounds.
         if (futureLocation.isOutOfBounds()){
             System.out.println("Player attempted to move out of bounds.");
 
-            // Tell the client to not move.
-            new MoveReply(player, false, currentLocation).sendPacket();
+            // Grabbing the tile the player is currently standing on
+            MapData mapData = player.getMapData();
+            Tile currentTile = mapData.getTileByLocation(currentLocation);
+
+            // TODO: PERFORM THIS AFTER THE PLAYER HAS FINISHED MOVING TOWARD THE EXIT OF
+            // TODO: THE MAP
+
+            // Check to see if the player needs to switch maps. Otherwise send a reply indicating
+            // to the player that they cannot move
+            if (currentTile.getWarp() != null) {
+                Warp warpData = currentTile.getWarp();
+                int warpX = warpData.getX();
+                int warpY = warpData.getY();
+                int newMapX = -1;
+                int newMapY = -1;
+                if (warpX != -1 && warpY != -1) {
+                    // Set the location to teleport to, to be equal
+                    // to the warp location
+                    newMapX = warpX;
+                    newMapY = warpY;
+                } else {
+                    // Determine the map location to teleport to by
+                    // the direction the player is moving and by their
+                    // current location
+                    if (x == +1) newMapX = 0;                          // Left side of map
+                    if (x == -1) newMapX = mapData.getMapWidth() - 1;  // Right side of map
+                    if (x == +0) newMapX = currentLocation.getX();     // Current position X
+                    if (y == +1) newMapY = 0;                          // Bottom of map
+                    if (y == -1) newMapY = mapData.getMapHeight() - 1; // Top of map
+                    if (y == +0) newMapY = currentLocation.getY();     // Current position Y
+                }
+
+                // Tell the client to switch maps
+                Location teleportLocation = new Location(warpData.getMapName(), newMapX, newMapY);
+                ValenguardMain.getInstance().getPlayerManager().playerSwitchMap(player, teleportLocation);
+            } else {
+                // Tell the client to not move.
+                new MoveReply(player, false, currentLocation).sendPacket();
+            }
+
             return;
         }
 

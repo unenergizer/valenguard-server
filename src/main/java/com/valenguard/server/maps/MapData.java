@@ -83,4 +83,15 @@ public class MapData {
     public boolean isOutOfBounds(int x, int y) {
         return x < 0 || x >= mapWidth || y < 0 || y >= mapHeight;
     }
+
+    /**
+     * Retrieves a tile by the location passed in. It is assumed that the location
+     * is not out of bounds before being passed.
+     *
+     * @param location the location on the map.
+     * @return The tile associated with the location.
+     */
+    public Tile getTileByLocation(Location location) {
+        return map[location.getX()][location.getY()];
+    }
 }

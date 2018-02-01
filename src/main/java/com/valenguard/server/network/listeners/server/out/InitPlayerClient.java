@@ -18,5 +18,6 @@ public class InitPlayerClient extends ServerOutPacket {
         write.writeInt(player.getEntityID());
         write.writeInt(player.getLocation().getX());
         write.writeInt(player.getLocation().getY());
+        // TODO: SEND THE MAP THAT THE PLAYER IS SUPPOSE TO SPAWN ON TO THE CLIENT
     }
 }

@@ -155,8 +155,10 @@ public class TmxParser {
                     int height = Integer.parseInt(objectTagElement.getAttribute("height")) / TILE_SIZE;
 
                     String warpMapName = null;
-                    int warpX = 0;
-                    int warpY = 0;
+                    // Set to negative one to let the server know that the warp is an outbound
+                    // warp to another map
+                    int warpX = -1;
+                    int warpY = -1;
 
 //                    System.out.println("[WARP #" + j + "] X: " + x + ", Y: " + y + ", Width: " + width + ", Height: " + height);
 
@@ -189,7 +191,7 @@ public class TmxParser {
                         for (int ii = y; ii < y + height; ii++) {
                             for (int jj = x; jj < x + width; jj++) {
                                 Tile tile = map[jj][mapHeight - ii - 1];
-                                tile.setWarp(new Warp(warpMapName, warpX, warpY));
+                                tile.setWarp(new Warp(warpMapName + ".tmx", warpX, warpY));
 //                                System.out.println(tile.getWarp().getMapName());
 //                                System.out.println(tile.getWarp().getX());
 //                                System.out.println(tile.getWarp().getY());
@@ -222,9 +224,9 @@ public class TmxParser {
 
                 System.out.println();
             }
-        }
 
-        System.out.println("");
+            System.out.println(""); // Clear a line for next map
+        }
 
         return new MapData(fileName, mapWidth, mapHeight, map);
     }

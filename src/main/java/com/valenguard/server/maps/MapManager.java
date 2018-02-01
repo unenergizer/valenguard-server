@@ -74,9 +74,4 @@ public class MapManager {
             new EntityMoveUpdate(playersToUpdate, entityWhoMoved).sendPacket();
         }
     }
-
-    public void playerChangeMap(Player player) {
-        // TODO: Implement proper tiled map switch
-        new PlayerMapChange(player, new Location("d", 0, 0)).sendPacket();
-    }
 }

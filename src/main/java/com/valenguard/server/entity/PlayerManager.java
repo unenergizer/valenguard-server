@@ -8,6 +8,7 @@ import com.valenguard.server.network.ClientHandler;
 import com.valenguard.server.network.listeners.server.out.EntityExitMap;
 import com.valenguard.server.network.listeners.server.out.EntityJoinMap;
 import com.valenguard.server.network.listeners.server.out.InitPlayerClient;
+import com.valenguard.server.network.listeners.server.out.PlayerMapChange;
 import com.valenguard.server.network.shared.Opcodes;
 
 import java.io.IOException;
@@ -47,15 +48,8 @@ public class PlayerManager {
         // Send this new client connection information about their location and other various information.
         new InitPlayerClient(player).sendPacket();
 
-        // Lets update everyone because a player has joined the map.
-        mapData.getPlayerList().forEach(playerOnMap -> {
-
-            // Send all players on the map info on the new player.
-            new EntityJoinMap(playerOnMap, player).sendPacket();
-
-            // Send the new player info about all players already on the map.
-            new EntityJoinMap(player, playerOnMap).sendPacket();
-        });
+        // Let's update everyone because a player has joined the map.
+        updateMapWithNewPlayer(player, mapData);
 
         // Add the player to the map they are on.
         mapData.addPlayer(player);
@@ -71,19 +65,8 @@ public class PlayerManager {
     public synchronized void onPlayerDisconnect(ClientHandler clientHandler) {
         Player player = getPlayer(clientHandler);
 
-        // Lets update everyone because a player has left the map.
-        player.getLocation().getMapData().getPlayerList().forEach(playerOnMap -> {
-
-            if (player.equals(playerOnMap)) return;
-
-            // Let all the players on the map know about the exit
-            new EntityExitMap(playerOnMap, player).sendPacket();
-        });
-
-        // Remove the player from the map they are in.
-        ValenguardMain.getInstance().getMapManager().getMapData(player.getMapData().getMapName()).removePlayer(player);
-        player.setLocation(null);
-        player.setFutureLocation(null);
+        // Let's update everyone because a player has left the map.
+        updateMapWithPlayerLeave(player);
 
         // Remove the player from the player manager.
         onlinePlayers.remove(getPlayer(clientHandler));
@@ -102,5 +85,66 @@ public class PlayerManager {
             }
         }
         throw new RuntimeException("Player not found using this ClientHandler.");
+    }
+
+    /**
+     * Handles switching maps for the player passed and spawns them at
+     * the spawnLocation on the new map.
+     *
+     * @param player The player who is switching maps.
+     * @param spawnLocation The new spawn location on the new map.
+     */
+    public void playerSwitchMap(Player player, Location spawnLocation) {
+
+        // Tell the client to switch maps.
+        new PlayerMapChange(player, spawnLocation).sendPacket();
+
+        // Let's update everyone because a player has joined the map.
+        updateMapWithNewPlayer(player, spawnLocation.getMapData());
+
+        // Let's update everyone because a player has left the map.
+        updateMapWithPlayerLeave(player);
+
+        // Setting the new map for the player
+        spawnLocation.getMapData().addPlayer(player);
+
+        // Setting the new location of the player the server.
+        player.setLocation(spawnLocation);
+    }
+
+    /**
+     * Sends out packet information to all the players on the map telling
+     * them that a new player has joined and tells the player who joined
+     * about all other players on the map.
+     *
+     * @param playerWhoJoined The player who just joined the map.
+     * @param mapToUpdate The map that the player has just joined.
+     */
+    private void updateMapWithNewPlayer(Player playerWhoJoined, MapData mapToUpdate) {
+        mapToUpdate.getPlayerList().forEach(playerOnMap -> {
+
+            // Send all players on the map info of the new player.
+            new EntityJoinMap(playerOnMap, playerWhoJoined).sendPacket();
+
+            // Send the new player info about all players already on the map.
+            new EntityJoinMap(playerWhoJoined, playerOnMap).sendPacket();
+        });
+    }
+
+    /**
+     * Sends out a packet to everyone indicating that the player has left the map.
+     *
+     * @param player The player who left the map
+     */
+    private void updateMapWithPlayerLeave(Player player) {
+        player.getLocation().getMapData().getPlayerList().forEach(playerOnMap -> {
+
+            if (player.equals(playerOnMap)) return;
+
+            // Let all the players on the map know about the exit
+            new EntityExitMap(playerOnMap, player).sendPacket();
+        });
+        // Remove the player from the map they are currently in.
+        player.getMapData().removePlayer(player);
     }
 }
