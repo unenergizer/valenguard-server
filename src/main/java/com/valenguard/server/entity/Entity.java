@@ -27,7 +27,10 @@ public class Entity {
     public void setupMovement(Location futureLocation) {
         this.futureLocation = futureLocation;
         isMoving = true;
+        System.out.println("MOVE SPEED: " + moveSpeed);
+        moveSpeed = 1.0f;
         countDownMovementTicks = (int) (ServerConstants.TICKS_PER_SECOND * (1.0f / moveSpeed));
+        System.out.println("TICK SETUP: " + countDownMovementTicks);
     }
 
     public void resetMovement() {

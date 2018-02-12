@@ -7,74 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="932fe864-19cb-447d-be74-0afcf029926c" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/valenguard_server_jar.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/valenguard/server/network/listeners/server/in/PingIn.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/valenguard/server/network/listeners/server/out/PingOut.java" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/fileContent/fileContent.lock" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/fileContent/fileContent.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileHashes.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileSnapshots.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.lock" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/valenguard/server/ValenguardMain.class" afterPath="$PROJECT_DIR$/build/classes/main/com/valenguard/server/ValenguardMain.class" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/valenguard/server/entity/PlayerManager.class" afterPath="$PROJECT_DIR$/build/classes/main/com/valenguard/server/entity/PlayerManager.class" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/valenguard/server/maps/MapData.class" afterPath="$PROJECT_DIR$/build/classes/main/com/valenguard/server/maps/MapData.class" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/valenguard/server/maps/MapManager.class" afterPath="$PROJECT_DIR$/build/classes/main/com/valenguard/server/maps/MapManager.class" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/valenguard/server/maps/TmxParser.class" afterPath="$PROJECT_DIR$/build/classes/main/com/valenguard/server/maps/TmxParser.class" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/valenguard/server/network/listeners/server/out/InitPlayerClient.class" afterPath="$PROJECT_DIR$/build/classes/main/com/valenguard/server/network/listeners/server/out/InitPlayerClient.class" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/valenguard/server/network/shared/Opcodes.class" afterPath="$PROJECT_DIR$/build/classes/main/com/valenguard/server/network/shared/Opcodes.class" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/valenguard/server/serverupdates/UpdateMovements.class" afterPath="$PROJECT_DIR$/build/classes/main/com/valenguard/server/serverupdates/UpdateMovements.class" />
-      <change beforePath="$PROJECT_DIR$/build/libs/valenguard-server-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/build/libs/valenguard-server-1.0-SNAPSHOT.jar" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/ServerLoop.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/ValenguardMain.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/commands/Command.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/commands/CommandListener.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/commands/CommandProcessor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/commands/ConsoleCommandManager.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/commands/listeners/StopServer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/commands/listeners/TicksPerSecond.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/constants/NewPlayerConstants.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/constants/ServerConstants.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/entity/Entity.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/entity/Player.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/entity/PlayerManager.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/maps/Location.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/maps/MapData.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/maps/MapManager.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/maps/Tile.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/maps/TmxParser.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/maps/Warp.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/network/ClientHandler$Reader.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/network/ClientHandler.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/network/ServerConnection.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/network/ServerEventBus$CallbackData.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/network/ServerEventBus.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/network/listeners/server/in/MoveRequest.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/network/listeners/server/out/EntityExitMap.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/network/listeners/server/out/EntityJoinMap.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/network/listeners/server/out/EntityMoveUpdate.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/network/listeners/server/out/InitPlayerClient.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/network/listeners/server/out/MoveReply.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/network/listeners/server/out/PlayerMapChange.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/network/listeners/server/out/ServerOutPacket.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/network/shared/Listener.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/network/shared/Opcode.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/network/shared/Opcodes.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/network/shared/Write.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/serverupdates/UpdateMovements.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/valenguard/server/util/ConsoleLogger.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/maps/maintown.tmx" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/maps/north.tmx" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/maps/south.tmx" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/valenguard/server/ValenguardMain.java" afterPath="$PROJECT_DIR$/src/main/java/com/valenguard/server/ValenguardMain.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valenguard/server/entity/Entity.java" afterPath="$PROJECT_DIR$/src/main/java/com/valenguard/server/entity/Entity.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valenguard/server/maps/MapData.java" afterPath="$PROJECT_DIR$/src/main/java/com/valenguard/server/maps/MapData.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/valenguard/server/maps/MapManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/valenguard/server/maps/MapManager.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/valenguard/server/network/shared/Opcodes.java" afterPath="$PROJECT_DIR$/src/main/java/com/valenguard/server/network/shared/Opcodes.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valenguard/server/maps/TmxParser.java" afterPath="$PROJECT_DIR$/src/main/java/com/valenguard/server/maps/TmxParser.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valenguard/server/serverupdates/UpdateMovements.java" afterPath="$PROJECT_DIR$/src/main/java/com/valenguard/server/serverupdates/UpdateMovements.java" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/maps/maintown.tmx" afterPath="$PROJECT_DIR$/src/main/resources/maps/maintown.tmx" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/maps/north.tmx" afterPath="$PROJECT_DIR$/src/main/resources/maps/north.tmx" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/maps/south.tmx" afterPath="$PROJECT_DIR$/src/main/resources/maps/south.tmx" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -134,86 +73,91 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PingOut.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/network/listeners/server/out/PingOut.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-              <folding>
-                <element signature="e#305#306#0" expanded="true" />
-                <element signature="e#348#349#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Opcodes.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/network/shared/Opcodes.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="33" lean-forward="false" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PingIn.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/network/listeners/server/in/PingIn.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="13" column="107" lean-forward="false" selection-start-line="13" selection-start-column="107" selection-end-line="13" selection-end-column="107" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ValenguardMain.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/ValenguardMain.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="74" column="38" lean-forward="false" selection-start-line="74" selection-start-column="38" selection-end-line="74" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gradle-wrapper.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="67" lean-forward="false" selection-start-line="12" selection-start-column="67" selection-end-line="12" selection-end-column="67" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MapManager.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/maps/MapManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="32" column="48" lean-forward="false" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TmxParser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/maps/TmxParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="26" column="30" lean-forward="false" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+            <state relative-caret-position="4063">
+              <caret line="251" column="47" lean-forward="false" selection-start-line="251" selection-start-column="47" selection-end-line="251" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlayerManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/entity/PlayerManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1598">
+              <caret line="108" column="51" lean-forward="false" selection-start-line="108" selection-start-column="51" selection-end-line="108" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UpdateMovements.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/serverupdates/UpdateMovements.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="40" column="35" lean-forward="false" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ValenguardMain.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/ValenguardMain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-510">
+              <caret line="48" column="38" lean-forward="true" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServerLoop.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/ServerLoop.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1649">
+              <caret line="103" column="74" lean-forward="false" selection-start-line="103" selection-start-column="74" selection-end-line="103" selection-end-column="74" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServerConstants.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/constants/ServerConstants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="25" column="28" lean-forward="false" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MoveRequest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/network/listeners/server/in/MoveRequest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1020">
+              <caret line="65" column="77" lean-forward="false" selection-start-line="65" selection-start-column="77" selection-end-line="65" selection-end-column="77" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Entity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/entity/Entity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="26" column="24" lean-forward="false" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/maps/MapData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="19" column="35" lean-forward="false" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -410,8 +354,8 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4548834873814" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="2565739253" />
+        <entry key="$PROJECT_DIR$" value="4548836776778" />
+        <entry key="$PROJECT_DIR$/build.gradle" value="747346474" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="615277776" />
         <entry key="$PROJECT_DIR$/settings.gradle" value="3556830693" />
       </map>
@@ -526,13 +470,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/valenguard/server/maps/MapData.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/valenguard/server/network/listeners/server/out/PlayerSwitchMap.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/valenguard/server/network/listeners/server/out/PlayerMapChange.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/valenguard/server/network/listeners/server/out/InitPlayerClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/valenguard/server/maps/TmxParser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/valenguard/server/serverupdates/UpdateMovements.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/valenguard/server/entity/Entity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/valenguard/server/entity/PlayerManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/valenguard/server/network/shared/Opcodes.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/valenguard/server/network/listeners/server/out/PingOut.java" />
@@ -540,14 +480,20 @@
         <option value="$PROJECT_DIR$/src/main/java/com/valenguard/server/ValenguardMain.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/com/valenguard/server/maps/MapManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/valenguard/server/network/listeners/server/out/EntityExitMap.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/valenguard/server/network/listeners/server/out/ServerOutPacket.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/valenguard/server/maps/MapData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/valenguard/server/maps/TmxParser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/valenguard/server/entity/Entity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/valenguard/server/serverupdates/UpdateMovements.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="97" />
-    <option name="y" value="56" />
+    <option name="x" value="1833" />
+    <option name="y" value="111" />
     <option name="width" value="1346" />
-    <option name="height" value="688" />
+    <option name="height" value="750" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -564,6 +510,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -571,28 +518,6 @@
             <path>
               <item name="valenguard-server" type="b2602c69:ProjectViewProjectNode" />
               <item name="valenguard-server" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="valenguard-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="valenguard-server" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="valenguard-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="valenguard-server" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="libs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="valenguard-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="valenguard-server" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="gradle" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="valenguard-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="valenguard-server" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="gradle" type="462c0819:PsiDirectoryNode" />
-              <item name="wrapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="valenguard-server" type="b2602c69:ProjectViewProjectNode" />
@@ -619,6 +544,15 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="valenguard-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="valenguard-server" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="valenguard-server" type="b2602c69:ProjectViewProjectNode" />
@@ -652,9 +586,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -682,7 +615,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.valenguard-server [clean build]">
+  <component name="RunManager" selected="Application.ValenguardMain">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -808,8 +741,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Gradle.valenguard-server [clean build]" />
-        <item index="1" class="java.lang.String" itemvalue="Application.ValenguardMain" />
+        <item index="0" class="java.lang.String" itemvalue="Application.ValenguardMain" />
+        <item index="1" class="java.lang.String" itemvalue="Gradle.valenguard-server [clean build]" />
       </list>
     </recent_temporary>
   </component>
@@ -834,26 +767,34 @@
       <option name="project" value="LOCAL" />
       <updated>1517441881011</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added latency tracker. Put various debug infos on screen.">
+      <created>1517524871357</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1517524871357</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
+    <frame x="1592" y="-8" width="1936" height="1066" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32948583" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33376455" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33053514" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32988358" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26757607" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2425" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.226875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20208333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1890625" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -865,7 +806,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -875,36 +815,19 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added a println line to seperate map drawing." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a println line to seperate map drawing." />
+    <MESSAGE value="Added latency tracker. Put various debug infos on screen." />
+    <MESSAGE value="Sending current build to git. This is prior to the networking restructure." />
+    <option name="LAST_COMMIT_MESSAGE" value="Sending current build to git. This is prior to the networking restructure." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/network/shared/Opcodes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="33" lean-forward="false" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/ValenguardMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="74" column="38" lean-forward="false" selection-start-line="74" selection-start-column="38" selection-end-line="74" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/network/listeners/server/in/PingIn.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="13" column="107" lean-forward="false" selection-start-line="13" selection-start-column="107" selection-end-line="13" selection-end-column="107" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -920,10 +843,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-          <folding>
-            <element signature="e#305#306#0" expanded="true" />
-            <element signature="e#348#349#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -931,9 +850,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="13" column="107" lean-forward="false" selection-start-line="13" selection-start-column="107" selection-end-line="13" selection-end-column="107" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -941,7 +857,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="33" lean-forward="false" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -965,10 +880,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-          <folding>
-            <element signature="e#305#306#0" expanded="true" />
-            <element signature="e#348#349#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -976,7 +887,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="33" lean-forward="false" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1041,7 +951,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="54" lean-forward="false" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1082,13 +991,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/network/listeners/server/out/PlayerSwitchMap.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/network/listeners/server/out/ServerOutPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="37" column="16" lean-forward="false" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/network/listeners/server/out/PlayerMapChange.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -1117,13 +1019,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/network/listeners/server/in/MoveRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="65" column="104" lean-forward="false" selection-start-line="65" selection-start-column="104" selection-end-line="65" selection-end-column="104" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/maps/Location.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1138,20 +1033,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/maps/MapData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-141">
-          <caret line="51" column="29" lean-forward="false" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/serverupdates/UpdateMovements.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1394">
-          <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/network/ServerConnection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2040">
@@ -1159,33 +1040,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/entity/Entity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="48" column="5" lean-forward="false" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/entity/PlayerManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="108" column="51" lean-forward="false" selection-start-line="108" selection-start-column="51" selection-end-line="108" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/ServerLoop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="51" column="51" lean-forward="true" selection-start-line="51" selection-start-column="51" selection-end-line="51" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/network/shared/Opcodes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="33" lean-forward="false" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1193,10 +1051,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-          <folding>
-            <element signature="e#305#306#0" expanded="true" />
-            <element signature="e#348#349#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1204,9 +1058,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="13" column="107" lean-forward="false" selection-start-line="13" selection-start-column="107" selection-end-line="13" selection-end-column="107" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1232,14 +1083,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/ValenguardMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="74" column="38" lean-forward="false" selection-start-line="74" selection-start-column="38" selection-end-line="74" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1256,18 +1099,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/maps/TmxParser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/maps/MapManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="26" column="30" lean-forward="false" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+        <state relative-caret-position="102">
+          <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/maps/MapManager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/network/listeners/server/out/EntityExitMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="32" column="48" lean-forward="false" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+        <state relative-caret-position="255">
+          <caret line="20" column="76" lean-forward="false" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/network/listeners/server/out/ServerOutPacket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="38" column="66" lean-forward="true" selection-start-line="38" selection-start-column="66" selection-end-line="38" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/maps/TmxParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4063">
+          <caret line="251" column="47" lean-forward="false" selection-start-line="251" selection-start-column="47" selection-end-line="251" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/network/listeners/server/in/MoveRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="65" column="77" lean-forward="false" selection-start-line="65" selection-start-column="77" selection-end-line="65" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/constants/ServerConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="28" lean-forward="false" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/entity/PlayerManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1598">
+          <caret line="108" column="51" lean-forward="false" selection-start-line="108" selection-start-column="51" selection-end-line="108" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/maps/MapData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="19" column="35" lean-forward="false" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/entity/Entity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="26" column="24" lean-forward="false" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/ServerLoop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1649">
+          <caret line="103" column="74" lean-forward="false" selection-start-line="103" selection-start-column="74" selection-end-line="103" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/serverupdates/UpdateMovements.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="40" column="35" lean-forward="false" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/valenguard/server/ValenguardMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-510">
+          <caret line="48" column="38" lean-forward="true" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="38" />
           <folding />
         </state>
       </provider>

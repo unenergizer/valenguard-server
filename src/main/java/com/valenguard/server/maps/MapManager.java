@@ -11,8 +11,8 @@ import java.util.Map;
 
 public class MapManager {
 
-    //private static final String MAP_DIRECTORY = "src/main/resources/maps/";
-    private static final String MAP_DIRECTORY = "maps/";
+    private static final String MAP_DIRECTORY = "src/main/resources/maps/";
+    //private static final String MAP_DIRECTORY = "maps/";
 
     private Map<String, MapData> tmxMaps = new HashMap<>();
 

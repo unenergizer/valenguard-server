@@ -1,5 +1,6 @@
 package com.valenguard.server.maps;
 
+import com.valenguard.server.entity.Entity;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -10,11 +11,15 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TmxParser {
 
     private static final int TILE_SIZE = 16;
     private static final boolean PRINT_MAP = true;
+
+    private static int entityCount = 1000;
 
     /**
      * This takes in a TMX map and gets the collision elements from it and builds a collision
@@ -131,8 +136,35 @@ public class TmxParser {
 
         // Examine XML file and find tags called "layer" then loop through them.
         NodeList objectgroupTag = tmx.getElementsByTagName("objectgroup");
+        List<Entity> entityList = new ArrayList<>();
 
         for (int i = 0; i < objectgroupTag.getLength(); i++) {
+
+
+            // Get entities
+            if (((Element) objectgroupTag.item(i)).getAttribute("name").equals("entities")) {
+                NodeList objectTag = ((Element) objectgroupTag.item(i)).getElementsByTagName("object");
+
+                System.out.println("Found " + objectgroupTag.getLength() + " entity spawns.");
+
+                for (int j = 0; j < objectTag.getLength(); j++) {
+
+                    //System.out.println("NodeType: " + objectTag.item(j).getNodeType());
+
+                    if (objectTag.item(j).getNodeType() != Node.ELEMENT_NODE) continue;
+
+                    Element objectTagElement = (Element) objectTag.item(j);
+                    String name = objectTagElement.getAttribute("name");
+                    int x = Integer.parseInt(objectTagElement.getAttribute("x")) / TILE_SIZE;
+                    int y = Integer.parseInt(objectTagElement.getAttribute("y")) / TILE_SIZE;
+
+                    System.out.println("[Entity] name: " + name + ", X: " + x + ", Y: " + y);
+
+                    entityList.add(new Entity(entityCount, new Location(fileName, x, y), 1));
+
+                    entityCount++;
+                }
+            }
 
             // Get warps
             if (((Element) objectgroupTag.item(i)).getAttribute("name").equals("warp")) {
@@ -206,9 +238,21 @@ public class TmxParser {
          * Print the map to console.
          */
         if (PRINT_MAP) {
-            for (int height = mapHeight - 1; height >= 0; height--) {
+            int yOffset = mapHeight - 1;
+            for (int height = yOffset; height >= 0; height--) {
                 for (int width = 0; width < mapWidth; width++) {
+
                     Tile tile = map[width][height];
+
+                    boolean entityFound = false;
+
+                    for (Entity entity : entityList) {
+                        Location location = entity.getLocation();
+                        if (location.getX() == width && location.getY() == yOffset - height) {
+                            System.out.print("e");
+                            entityFound = true;
+                        }
+                    }
 
                     if (!tile.isTraversable()) {
                         System.out.print("X");
@@ -216,7 +260,7 @@ public class TmxParser {
                     } else if (tile.isTraversable() && tile.getWarp() != null) {
                         System.out.print("@");
 
-                    } else if (tile.isTraversable() && tile.getWarp() == null) {
+                    } else if (tile.isTraversable() && tile.getWarp() == null && !entityFound) {
                         System.out.print(" ");
                     }
 
@@ -225,9 +269,9 @@ public class TmxParser {
                 System.out.println();
             }
 
-            System.out.println(""); // Clear a line for next map
+            System.out.println(); // Clear a line for next map
         }
 
-        return new MapData(fileName, mapWidth, mapHeight, map);
+        return new MapData(fileName, mapWidth, mapHeight, map, entityList);
     }
 }

@@ -1,5 +1,6 @@
 package com.valenguard.server.maps;
 
+import com.valenguard.server.entity.Entity;
 import com.valenguard.server.entity.Player;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,12 +17,14 @@ public class MapData {
     private final int mapHeight;
     private final Tile map[][];
     private final List<Player> playerList = new ArrayList<>();
+    private List<Entity> entityList;
 
-    public MapData(String mapName, int mapWidth, int mapHeight, Tile[][] map) {
+    public MapData(String mapName, int mapWidth, int mapHeight, Tile[][] map, List<Entity> entityList) {
         this.mapName = mapName;
         this.mapWidth = mapWidth;
         this.mapHeight = mapHeight;
         this.map = map;
+        this.entityList = entityList;
     }
 
     /**

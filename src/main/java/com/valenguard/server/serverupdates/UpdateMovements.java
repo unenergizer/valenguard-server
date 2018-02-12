@@ -16,6 +16,9 @@ public class UpdateMovements {
 
     private Queue<Player> movingPlayers = new ConcurrentLinkedDeque<>();
 
+    private boolean hasStarted = false;
+    private long startTime = 0;
+
     /**
      * Process the list of moving players.
      */
@@ -25,9 +28,17 @@ public class UpdateMovements {
 
         // Loop through all players and process movement.
         movingPlayers.forEach(player -> {
+            if (!hasStarted) {
+                startTime = System.currentTimeMillis();
+                hasStarted = true;
+            }
 
             // Process the players movement.
             if (player.getCountDownMovementTicks() == 0) {
+
+                long endTime = System.currentTimeMillis();
+                System.out.println("TIME FOR 20 TICKS: " + (endTime - startTime));
+                hasStarted = false;
 
                 // If the entity has moved the required number of ticks, remove them.
                 removePlayer(player);
